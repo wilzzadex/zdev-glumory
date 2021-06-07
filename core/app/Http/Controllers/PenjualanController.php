@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
-use App\models\DetailPenjualan;
-use App\models\Pelanggan;
+use App\Models\DetailPenjualan;
+use App\Models\Pelanggan;
 use App\Models\Penjualan;
 use Illuminate\Http\Request;
 
