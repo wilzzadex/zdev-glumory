@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Barang;
-use App\models\DetailPenjualan;
+use App\Models\DetailPenjualan;
 use Illuminate\Http\Request;
 
 class BarangController extends Controller

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\models\Penjualan;
+use App\Models\Penjualan;
 use App\User;
 use Illuminate\Http\Request;
 

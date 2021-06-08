@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pelanggan;
-use App\models\Penjualan;
+use App\Models\Penjualan;
 use Illuminate\Http\Request;
 
 class PelangganController extends Controller
