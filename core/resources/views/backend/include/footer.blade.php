@@ -5,7 +5,7 @@
         <!--begin::Copyright-->
         <div class="text-dark order-2 order-md-1">
             <span class="text-muted font-weight-bold mr-2">{{ date('Y') }}©</span>
-            <a href="http://keenthemes.com/metronic" target="_blank" class="text-dark-75 text-hover-primary">Nama Aplikasi nya belum</a>
+            <a href="http://keenthemes.com/metronic" target="_blank" class="text-dark-75 text-hover-primary">Hafara Cantik Indonesia</a>
         </div>
         <!--end::Copyright-->
         <!--begin::Nav-->

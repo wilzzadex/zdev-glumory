@@ -90,7 +90,17 @@
                 <h4 class="menu-text">Laporan</h4>
                 <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
             </li>
-            <li class="menu-item {{ Request::is('admin/laporan/barang*') ? 'menu-item-active' : '' }}" aria-haspopup="true">
+            <li class="menu-item {{ Request::is('admin/laporan/penjualan*') ? 'menu-item-active' : '' }}" aria-haspopup="true">
+                <a href="{{ route('laporan.penjualan') }}" class="menu-link">
+                    <span class="svg-icon menu-icon">
+                        <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
+                        <i class="fas fa-file-alt"></i>
+                        <!--end::Svg Icon-->
+                    </span>
+                    <span class="menu-text">Data Penjualan</span>
+                </a>
+            </li>
+            {{-- <li class="menu-item {{ Request::is('admin/laporan/barang*') ? 'menu-item-active' : '' }}" aria-haspopup="true">
                 <a href="{{ route('penjualan') }}" class="menu-link">
                     <span class="svg-icon menu-icon">
                         <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
@@ -99,19 +109,9 @@
                     </span>
                     <span class="menu-text">Data Barang</span>
                 </a>
-            </li>
-            <li class="menu-item {{ Request::is('admin/laporan/barang*') ? 'menu-item-active' : '' }}" aria-haspopup="true">
-                <a href="{{ route('penjualan') }}" class="menu-link">
-                    <span class="svg-icon menu-icon">
-                        <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                        <i class="fas fa-file-alt"></i>
-                        <!--end::Svg Icon-->
-                    </span>
-                    <span class="menu-text">Data Pelanggan</span>
-                </a>
-            </li>
-            <li class="menu-item {{ Request::is('admin/laporan/barang*') ? 'menu-item-active' : '' }}" aria-haspopup="true">
-                <a href="{{ route('penjualan') }}" class="menu-link">
+            </li> --}}
+            <li class="menu-item {{ Request::is('admin/laporan/pph*') ? 'menu-item-active' : '' }}" aria-haspopup="true">
+                <a href="{{ route('laporan.pph') }}" class="menu-link">
                     <span class="svg-icon menu-icon">
                         <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
                         <i class="fas fa-file-alt"></i>

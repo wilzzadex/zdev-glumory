@@ -63,14 +63,14 @@
                                 No. {{ $penjualan->kode_transaksi }}
                             </div>
                             <div class="col-12">
-                                {{-- <span>NAMA APLIKASI</span> --}}
+                                <span>Ciganitri No.18 Ruko Garden City, Kec.Bojongsoang, Bandung</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6 text-center">
-                        <span>NAMA APLIKASI</span>
+                        <span>Perhitungan PPH Final Hafara Cantik Indonesia</span>
                     </div>
                 </div>
             </td>

@@ -37,26 +37,29 @@
                             </thead>
                             <tbody>
                                 @foreach ($pelanggan as $key => $item)
-                                <tr>
-                                    <td>{{ $key+1 }}</td>
-                                    <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->alamat }}</td>
-                                    <td>{{ $item->no_telp }}</td>
-                                    <td nowrap="nowrap">
-                                        <div class="dropdown dropdown-inline mr-4">
-                                            <button type="button" class="btn btn-light-primary btn-icon btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="ki ki-bold-more-hor"></i>
-                                            </button>
-                                            <div class="dropdown-menu" style="">
-                                                <a class="dropdown-item" href="{{ route('pelanggan.edit',$item->id) }}">Edit</a>
-                                                <a class="dropdown-item" onclick="editUser(this)" id="{{ $item->id }}" href="javascript:void(0)">Hapus</a>
+                                    <tr>
+                                        <td>{{ $key + 1 }}</td>
+                                        <td>{{ $item->nama }}</td>
+                                        <td>{{ $item->alamat }}</td>
+                                        <td>{{ $item->no_telp }}</td>
+                                        <td nowrap="nowrap">
+                                            <div class="dropdown dropdown-inline mr-4">
+                                                <button type="button" class="btn btn-light-primary btn-icon btn-sm"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ki ki-bold-more-hor"></i>
+                                                </button>
+                                                <div class="dropdown-menu" style="">
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('pelanggan.edit', $item->id) }}">Edit</a>
+                                                    <a class="dropdown-item" onclick="editUser(this)"
+                                                        id="{{ $item->id }}" href="javascript:void(0)">Hapus</a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
 
                                 @endforeach
-                              
+
                             </tbody>
                         </table>
                         <!--end: Datatable-->
@@ -107,17 +110,24 @@
                         },
                         success: function(res) {
                             KTApp.unblockPage();
-                            console.log(res);
-                            Swal.fire(
-                                "Terhapus!",
-                                "Data berhasil di hapus.",
-                                "success"
-                            ).then(function() {
-                                window.location.reload();
-                            })
+                            if (res == 'no') {
+                                Swal.fire(
+                                    "Gagal dihapus!",
+                                    "Data ini ada di transaksi",
+                                    "warning"
+                                )
+                            } else {
+                                Swal.fire(
+                                    "Terhapus!",
+                                    "Data berhasil di hapus.",
+                                    "success"
+                                ).then(function() {
+                                    window.location.reload();
+                                })
+                            }
                         }
                     })
-                  
+
                 }
             });
         }

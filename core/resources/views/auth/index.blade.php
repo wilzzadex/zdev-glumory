@@ -37,7 +37,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link href="{{ asset('assets/backend/css/themes/layout/brand/dark.css') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ asset('assets/backend/css/themes/layout/aside/dark.css') }}" rel="stylesheet" type="text/css" />
 		<!--end::Layout Themes-->
-		<link rel="shortcut icon" href="{{ asset('assets/backend/media/logos/favicon.ico') }}" />
+		<link rel="shortcut icon" href="{{ asset('assets/glu.png') }}" />
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
@@ -56,8 +56,8 @@ License: You must have a valid license purchased only from themeforest(the above
 						</a>
 						<!--end::Aside header-->
 						<!--begin::Aside title-->
-						<h3 class="font-weight-bolder text-center font-size-h4 font-size-h1-lg" style="color: #986923;">Nama Aplikasi
-						<br />Belum tau</h3>
+						<h3 class="font-weight-bolder text-center font-size-h4 font-size-h1-lg" style="color: #986923;">Aplikasi Perhitungan PPH Final 
+						<br />Hafara Cantik Indonesia</h3>
 						<!--end::Aside title-->
 					</div>
 					<!--end::Aside Top-->
@@ -114,7 +114,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					<div class="d-flex justify-content-lg-start justify-content-center align-items-end py-7 py-lg-0">
 						<div class="text-dark-50 font-size-lg font-weight-bolder mr-10">
 							<span class="mr-1">{{ date('Y') }}©</span>
-							<a href="http://keenthemes.com/metronic" target="_blank" class="text-dark-75 text-hover-primary">Nama Aplikasi nya Belum</a>
+							<a href="http://keenthemes.com/metronic" target="_blank" class="text-dark-75 text-hover-primary">Hafara Cantik Indonesia</a>
 						</div>
 						
 					</div>

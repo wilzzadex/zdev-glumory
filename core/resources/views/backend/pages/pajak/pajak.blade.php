@@ -26,26 +26,14 @@
                         </div>
                         
                     </div>
-                    {{-- <div class="card-header flex-wrap py-3">
-                        
-                        <div class="card-title">
-                            
-                        </div>
-                        <div class="card-toolbar">
-                            <a href="{{ route('pelanggan.add') }}" class="btn btn-primary font-weight-bolder">
-                                <span class="svg-icon svg-icon-md">
-                                    <i class="fas fa-plus"></i>
-                                </span>Tambah Pelanggan</a>
-                            <!--end::Button-->
-                        </div>
-                    </div> --}}
+                   
                     <div class="card-body">
                         <!--begin: Datatable-->
 
                         <table class="table table-bordered" id="user_table">
                             <thead>
                                 <tr>
-                                    {{-- <th width="10px">No.</th> --}}
+                                    <th width="10px">No.</th>
                                     <th>Masa Pajak</th>
                                     <th>Total Penjualan</th>
                                     <th>Jumlah Pajak (0,5 %)</th>
@@ -53,39 +41,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($pajak as $item)
+                                @foreach ($pajak as $key => $item)
                                     @php
                                         $pph = ((10 / 100) * $item->total) / 2;
                                         $bulan = \App\Models\Master_Bulan::where('id',$item->bulan)->first();
                                     @endphp
                                     <tr>
+                                        <td>{{ $key+1 }}</td>
                                         <td>{{ $bulan->nama }} {{ $item->tahun }}</td>
                                         <td>Rp. {{ number_format($item->total) }}</td>
                                         <td>Rp. {{ number_format($pph) }}</td>
                                     </tr>
 
                                 @endforeach
-                                {{-- @foreach ($pelanggan as $key => $item)
-                                <tr>
-                                    <td>{{ $key+1 }}</td>
-                                    <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->alamat }}</td>
-                                    <td>{{ $item->no_telp }}</td>
-                                    <td nowrap="nowrap">
-                                        <div class="dropdown dropdown-inline mr-4">
-                                            <button type="button" class="btn btn-light-primary btn-icon btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="ki ki-bold-more-hor"></i>
-                                            </button>
-                                            <div class="dropdown-menu" style="">
-                                                <a class="dropdown-item" href="{{ route('pelanggan.edit',$item->id) }}">Edit</a>
-                                                <a class="dropdown-item" onclick="editUser(this)" id="{{ $item->id }}" href="javascript:void(0)">Hapus</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                @endforeach --}}
-
+                                
                             </tbody>
                         </table>
                         <!--end: Datatable-->

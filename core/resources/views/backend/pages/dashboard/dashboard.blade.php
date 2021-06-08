@@ -18,7 +18,10 @@
                         <div class="card-body">
                             <CENTER>
 
-                                <h3>Selamat Datang di Aplikasi (Nama aplikasi belum ada)</h3> <br>
+                                <h3>Selamat Datang di Aplikasi Perhitungan PPH Final Hafara Cantik Indonesia</h3> <br>
+                                <span>Ciganitri No.18 Ruko Garden City, Kec.Bojongsoang, Bandung</span>
+                                <br>
+                                <br>
                                 <img src="{{ asset('assets/gli-da.jpeg') }}" style="width: 100%" alt="">
                             </CENTER>
                         </div>

@@ -123,4 +123,11 @@ class PenjualanController extends Controller
         $data['detail'] = DetailPenjualan::where('is_save',1)->where('kode_transaksi',$kode)->get();
         return view('backend.pages.penjualan.cetak_faktur',$data);
     }
+
+    public function destroy(Request $request)
+    {
+        $penjualan = Penjualan::where('id',$request->id)->first();
+        $detail = DetailPenjualan::where('kode_transaksi',$penjualan->kode_transaksi)->where('is_save',1)->delete();
+        $penjualan->delete();
+    }
 }

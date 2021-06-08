@@ -51,11 +51,18 @@
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i class="ki ki-bold-more-hor"></i>
                                                 </button>
+
                                                 <div class="dropdown-menu" style="">
-                                                    <button type="button" class="dropdown-item" id="{{ $item->kode_transaksi }}" onclick="lihatFaktur(this)">Lihat Faktur</button>
-                                                    <a class="dropdown-item" onclick="editUser(this)"
-                                                        id="{{ $item->id }}" href="javascript:void(0)">Hapus</a>
+                                                    <button type="button" class="dropdown-item"
+                                                        id="{{ $item->kode_transaksi }}" onclick="lihatFaktur(this)">Lihat
+                                                        Faktur</button>
+                                                    @if (auth()->user()->id == $item->user_id)
+                                                        <a class="dropdown-item" onclick="hapusPenjualan(this)"
+                                                            id="{{ $item->id }}" href="javascript:void(0)">Hapus</a>
+                                                    @endif
                                                 </div>
+
+
                                             </div>
                                         </td>
 
@@ -75,7 +82,7 @@
     </div>
 
     <div class="modal fade" role="dialog" id="modalFaktur" aria-labelledby="myModal" aria-hidden="true">
-       
+
     </div>
 @endsection
 @section('js-custom')
@@ -89,18 +96,18 @@
             customAlert('Sukses !','{{ session('success') }}','success')
         @endif
 
-        function lihatFaktur(thiss){
+        function lihatFaktur(thiss) {
             let no_faktur = $(thiss).attr('id');
             $.ajax({
-                url : '{{ route("penjualan.lihatfaktur") }}',
-                type : 'get',
-                data : {
-                    kode_transaksi : no_faktur
+                url: '{{ route('penjualan.lihatfaktur') }}',
+                type: 'get',
+                data: {
+                    kode_transaksi: no_faktur
                 },
-                beforeSend : function(){
+                beforeSend: function() {
                     myBlock();
                 },
-                success: function(res){
+                success: function(res) {
                     KTApp.unblockPage();
                     $('#modalFaktur').html(res);
                     $('#modalFaktur').modal('show');
@@ -109,7 +116,7 @@
             })
         }
 
-        function editUser(obj) {
+        function hapusPenjualan(obj) {
             let id = $(obj).attr('id');
             Swal.fire({
                 title: "Anda Yakin ?",
@@ -122,7 +129,7 @@
             }).then(function(result) {
                 if (result.value) {
                     $.ajax({
-                        url: '{{ route('back.user.destroy') }}',
+                        url: '{{ route('penjualan.destroy') }}',
                         type: 'get',
                         data: {
                             id: id,
@@ -146,11 +153,6 @@
                             })
                         }
                     })
-                    // Swal.fire(
-                    //     "Deleted!",
-                    //     "Your file has been deleted.",
-                    //     "success"
-                    // )
                 }
             });
         }

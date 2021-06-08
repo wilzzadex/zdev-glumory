@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Barang;
+use App\models\DetailPenjualan;
 use Illuminate\Http\Request;
 
 class BarangController extends Controller
@@ -37,8 +38,13 @@ class BarangController extends Controller
     public function destroy(Request $request)
     {
         $barang = Barang::find($request->id);
-        $barang->delete();
-        return response()->json($barang);
+        $cek = DetailPenjualan::where('barang_id',$barang->id)->count();
+        if($cek == 0){
+            $barang->delete();
+            return response()->json('oke');
+        }else{
+            return response()->json('no');
+        }
     }
 
     public function edit($id)

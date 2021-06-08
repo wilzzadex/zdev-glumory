@@ -44,6 +44,8 @@ Route::group(['middleware' => ['auth', 'checkRole:superadmin,Admin']], function 
             Route::get('jmlbarangtemp',['as' => 'penjualan.jmlbarangtemp','uses' => 'PenjualanController@jmlBarangTemp']);
             Route::get('lihatfaktur',['as' => 'penjualan.lihatfaktur','uses' => 'PenjualanController@lihatFaktur']);
             Route::get('cektakFaktur/{kode}',['as' => 'penjualan.cetak.faktur','uses' => 'PenjualanController@cetakFaktur']);
+            Route::get('destroy', ['as' => 'penjualan.destroy', 'uses' => 'PenjualanController@destroy']);
+
         });
 
         Route::prefix('pelanggan')->group(function () {
@@ -57,11 +59,17 @@ Route::group(['middleware' => ['auth', 'checkRole:superadmin,Admin']], function 
 
         Route::prefix('pph/{tahun}')->group(function () {
             Route::get('/', ['as' => 'pajak', 'uses' => 'PajakController@index']);
-            // Route::get('add', ['as' => 'pelanggan.add', 'uses' => 'PelangganController@add']);
             // Route::post('store', ['as' => 'pelanggan.store', 'uses' => 'PelangganController@store']);
             // Route::get('destroy', ['as' => 'pelanggan.destroy', 'uses' => 'PelangganController@destroy']);
             // Route::get('edit/{id}', ['as' => 'pelanggan.edit', 'uses' => 'PelangganController@edit']);
             // Route::post('update/{id}', ['as' => 'pelanggan.update', 'uses' => 'PelangganController@update']);
+        });
+
+        Route::prefix('laporan')->group(function () {
+            Route::get('penjualan', ['as' => 'laporan.penjualan', 'uses' => 'LaporanController@indexPenjualan']);
+            Route::get('penjualan/cetak', ['as' => 'laporan.penjualan.cetak', 'uses' => 'LaporanController@cetakPenjualan']);
+            Route::get('pph', ['as' => 'laporan.pph', 'uses' => 'LaporanController@indexPPH']);
+            Route::get('pph/cetak', ['as' => 'laporan.pph.cetak', 'uses' => 'LaporanController@cetakPPH']);
         });
     });
 });

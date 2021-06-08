@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pelanggan;
+use App\models\Penjualan;
 use Illuminate\Http\Request;
 
 class PelangganController extends Controller
@@ -50,6 +51,12 @@ class PelangganController extends Controller
     public function destroy(Request $request)
     {
         $pelanggan = Pelanggan::where('id',$request->id)->first();
-        $pelanggan->delete();
+        $cek = Penjualan::where('pelanggan_id',$pelanggan->id)->count();
+        if($cek == 0){
+            $pelanggan->delete();
+            return response()->json('oke');
+        }else{
+            return response()->json('no');
+        }
     }
 }
