@@ -60,10 +60,10 @@ class BarangController extends Controller
             'kode_barang' => 'unique:barang,kode_barang,'.$id,
             'nama_barang' => 'required',
         ]);
-        $barang = Barang::find($id);
+        $barang = Barang::findOrFail($id);
         $barang->kode_barang = $request->kode_barang;
         $barang->nama_barang = $request->nama_barang;
-        $barang->reorder = $request->reorder;
+        $barang->harga = str_replace('.','' , $request->harga);
         $barang->save();
 
         return redirect(route('barang'))->with('success','Data barang berhasil di ubah !');

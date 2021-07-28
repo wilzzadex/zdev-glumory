@@ -29,24 +29,6 @@
                         <form method="POST" action="{{ route('barang.update',$barang->id) }}" id="userAdd">
                             @csrf
                             <div class="card-body">
-
-                                {{-- <div class="form-group row">
-                                    <label class="col-xl-3 col-lg-3 col-form-label text-right">Example Label</label>
-                                    <div class="col-lg-9 col-xl-6">
-                                        <div class="image-input image-input-outline" id="kt_image_1">
-                                            <div class="image-input-wrapper" style="background-image: url(assets/media/users/100_1.jpg)"></div>
-                                            <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
-                                                <i class="fa fa-pen icon-sm text-muted"></i>
-                                                <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg" />
-                                                <input type="hidden" name="profile_avatar_remove" />
-                                            </label>
-                                            <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
-                                                <i class="ki ki-bold-close icon-xs text-muted"></i>
-                                            </span>
-                                        </div>
-                                        <span class="form-text text-muted">Allowed file types: png, jpg, jpeg.</span>
-                                    </div>
-                                </div> --}}
                                 <div class="form-group">
                                     <label>Kode Barang
                                     <span class="text-danger">*</span></label>
@@ -58,9 +40,9 @@
                                     <input type="text" class="form-control" value="{{ $barang->nama_barang }}" name="nama_barang" placeholder="Nama Barang" />
                                 </div>
                                 <div class="form-group">
-                                    <label>Harga (Rp)
+                                    <label>Harga
                                     <span class="text-danger">*</span></label>
-                                    <input type="number" class="form-control" value="{{ $barang->reorder }}" name="reorder" placeholder="Reorder jika barang kurang dari (Kg)..." />
+                                    <input type="text" class="form-control" id="harga" value="{{ $barang->harga }}" name="harga" placeholder="Masukan Harga..." />
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -84,6 +66,8 @@
         customAlert('Sukses !','{{ session("success") }}','success')
     @endif
 
+    $('#harga').mask('000.000.000', { reverse: true });
+
     var runValidator = function () {
         var form = $('#userAdd');
         var errorHandler = $('.errorHandler', form);
@@ -105,6 +89,7 @@
             rules: {
                 nama_barang : "required",
                 kode_barang : "required",
+                harga : "required",
             },
             messages: {
                 
